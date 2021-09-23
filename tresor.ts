@@ -13,6 +13,7 @@ export class Tresor {
    }
    private addGegenstand(){};
  private getGegenstand() {return this.gegenstaende} ;
+ private removeGegenstand() {};
    //todo Gegenstand hinzufügen (addGegenstand)
    
    //todo Gegenstand finden (getGegenstand) 
