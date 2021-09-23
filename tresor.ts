@@ -11,7 +11,8 @@ export class Tresor {
    constructor() {
      this.gegenstaende = new Array();
    }
- 
+   private addGegenstand(){};
+ private getGegenstand() {return this.gegenstaende} ;
    //todo Gegenstand hinzufügen (addGegenstand)
    
    //todo Gegenstand finden (getGegenstand) 
