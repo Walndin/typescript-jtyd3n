@@ -13,4 +13,4 @@ export class schmuck extends Gegenstand {
   
   //todo
 
-}
+} 
