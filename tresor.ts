@@ -72,14 +72,16 @@ export class Tresor {
     */
 
    berechneGesamtwert(): number {
-     let summeWerte: number = 0;
-     this.gegenstaende.forEach(gegenstand => summeWerte += gegenstand.wert);
-     return summeWerte;
-   }
+     let summe: number = 0;
+     this.gegenstaende.forEach(g => summe += g.wert);
+     return summe;
+   } 
 
    //todo toString
    toString(): string {
-     let text: string = "LISTE DER GEGENSTÄNDE"
+     let text: string = "\n\nTresorinhalt"
+     this.gegenstaende.forEach(g => text += g.toString());
+     text += "\n\nWert der Gegenstände im Tresor: " + this.berechneGesamtwert();
      //todo, vgl. forEach in berechneGesamtwert()
      return text;
    }
