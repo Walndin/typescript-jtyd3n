@@ -1,19 +1,54 @@
 import { Gegenstand } from "./gegenstand";
 import { GegenstandNichtGefundenError } from "./gegenstandNichtGefundenError";
 
+
 export class Tresor {
   
   /**
    * Typ ArrayList (vgl. Java) nicht vorhanden --> Array verwenden!
    */
-   private gegenstaende: Gegenstand[]
+   private gegenstaende: Gegenstand[];
 
    constructor() {
      this.gegenstaende = new Array();
    }
-   private addGegenstand(){};
- private getGegenstand() {return this.gegenstaende} ;
- private removeGegenstand() {};
+   addGegenstand(g: Gegenstand){
+     this.gegenstaende.push(g);
+   }
+  getGegenstand_v1(id: number): Gegenstand {
+    for(let i: number = 0; i < this.gegenstaende.length; i++) {
+     if id == this.gegenstaende[i].id {
+       return this.gegenstaende[i];
+     } 
+    }
+    throw new GegenstandNichtGefundenError(id);
+  }
+
+  getGegenstand_v2(id: number): Gegenstand {
+    for (let g of this.gegenstaende) {
+      if id == g.id{
+        return g;
+      }
+    }
+    throw new GegenstandNichtGefundenError(id);
+  }
+
+  getGegenstand_v3(id: number): Gegenstand {
+   let gefundenGegenstand = this.gegenstaende.find(g => g.id === id);
+   if (gefundenGegenstand !== undefined) {
+     return gefundenGegenstand;
+   }
+   throw new GegenstandNichtGefundenError(id);
+
+  }
+  removeGegenstand(gegenstand: Gegenstand) {
+    let gegenstandToRemove = this.gegenstaende.find(g => g === gegenstand);
+    if (gegenstandToRemove !== undefined) {
+      this.gegenstaende = this.gegenstaende.filter(g => g !== gegenstandToRemove);
+    } else {
+      throw new GegenstandNichtGefundenError(gegenstandToRemove.id);
+    }
+  }
    //todo Gegenstand hinzufügen (addGegenstand)
    
    //todo Gegenstand finden (getGegenstand) 

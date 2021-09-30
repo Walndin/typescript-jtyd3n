@@ -1,7 +1,7 @@
 /**
  * Schlüsselwort export notwendig, damit die Klasse auch außerhalb des
  * Moduls verfügbar ist. (Zugriff von außen z. B. über die index.html)
- * 
+ *
  * =====================================================================
  * Standardmäßige Sichtbarkeit von Klassen, Eigenschaften und Methoden:
  * Wird keiner der Zugriffsmodifizierer public, private oder protected
@@ -9,22 +9,21 @@
  * grundsätzlich public.
  */
 export abstract class Gegenstand {
-
   /**
    * Konstruktor, dessen Parameter im Falle einer Deklaration als public
-   * (wie hier) oder private zugleich Klassenattribute darstellen. Die 
+   * (wie hier) oder private zugleich Klassenattribute darstellen. Die
    * Deklaration als public oder private ist also vonnöten, wenn ein Parameter
    * zugleich ein Klassenattribut darstellen soll.
-   * 
+   *
    * Sollen die Attribute von außerhalb der Klasse erreichbar sein, bietet sich,
    * anders als z. B. in Java, je nach Fall, eine dieser beiden Optionen an:
    * Attribute, auf die sowohl lesend als auch schreibend zugegriffen werden
    * soll, werden als public deklariert. Attribute, auf die nur lesend
    * zugegriffen werden soll, werden als public readonly deklariert.
-   * 
+   *
    * Begründung:
-   * Muss später ein Refactoring in dem Sinne vorgenommen werden, dass eines 
-   * der Attribute doch auf private gesetzt werden muss, aber z. B. ein 
+   * Muss später ein Refactoring in dem Sinne vorgenommen werden, dass eines
+   * der Attribute doch auf private gesetzt werden muss, aber z. B. ein
    * lesender Zugriff aus einer anderen Klasse erhalten bleiben soll,
    * ließe sich ein Getter erzeugen, der genauso heißt, wie das
    * Klassenattribut hieß, als es noch public war. Der Getter wird nämlich,
@@ -32,7 +31,7 @@ export abstract class Gegenstand {
    * zusätzlich eine Methodenklammer mit aufzuführen. Das nun private
    * Klassenattribut wäre dann lediglich vorher umzubennen, z. B. 'wert'
    * in '_wert'.
-   * 
+   *
    * Beispiel
    * 1. Klassenattribut 'wert' von public auf private ändern
    * 2. Umbenennung des Klassenattributs 'wert' in '_wert'
@@ -47,7 +46,7 @@ export abstract class Gegenstand {
    *   Beispiel für Aufruf des Getters:
    *      let summe: number = 100 + this.wert;
    *   <-- Aufruf erfolgt allein über den Namen und OHNE KLAMMER!
-   * 
+   *
    * =====================================================================
    * integrierte Datentypen in Typescript:
    * Es gibt nur
@@ -55,7 +54,7 @@ export abstract class Gegenstand {
    * * number
    * * string
    * * boolean
-   * 
+   *
    */
   constructor(public readonly id: number, public wert: number) {}
 
@@ -64,8 +63,8 @@ export abstract class Gegenstand {
      * Datentyp der Variablen 'text' muss nicht zwangsläufig festgelegt werden.
      * Dieser ergibt sich andernfalls auch durch die Zuweisung.
      */
-    let text: string = "\nID: " + this.id;
-    text += "\nVersicherungswert: " + this.wert;
+    let text: string = '\nID: ' + '\t' + this.id;
+    text += '\nWert: ' + '\t' + this.wert;
     return text;
   }
 }
