@@ -24,18 +24,16 @@
         <img src="https://www.kasandbox.org/programming-images/animals/shark.png" height="150" alt="shark">
         <img src="https://www.kasandbox.org/programming-images/animals/spider.png" height="150" alt="spider">
         
-        <!--p class="result"> Du bekommst eine Haispinne!</p!-->
+
         
         <p class="result">You get a sharkspidr!</p>
         
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
         <script>
-        var abc = $("p");
-        //console.log(abc);
-        $("p").text('Was passiert, wenn du die beiden Tiere kombinierst?');
-        $( ".result" ).append( " Du bekommst eine Haispinne!" );
-        
-            
+        var abc = $("<p>");
+        abc.text("Du bekommst eine Haispinne");
+        $("body").append(abc);
+        abc.addClass("result")
             
         </script>
     </body>
